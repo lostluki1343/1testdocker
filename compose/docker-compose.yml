@@ -1,0 +1,12 @@
+services:
+  apache:
+    image: 1testdocker
+    container_name: "${NAME:-1testdocker}"
+    environment:
+      - APACHE_ADMIN=${EMAIL:-max@muster.at}
+    volumes:
+      - ${LOGDIR}:/var/log/apache2
+      - ${WEBDIR}:/var/www/html
+    ports:
+      - 8180:80
+    tty: true
